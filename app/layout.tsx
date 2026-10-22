@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const description =
-  "Software engineer in NYC with a CS + Economics background, moving from production infrastructure toward product-facing full-stack and AI/ML work.";
+  "Charlotte Demas: Software Engineer at Bank of America. B.S. Computer Science & B.A. Economics, Wake Forest University. New York, NY.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c0b0a",
+  themeColor: "#0a0e1a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

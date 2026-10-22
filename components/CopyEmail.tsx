@@ -19,7 +19,7 @@ export default function CopyEmail({ email }: { email: string }) {
     <button
       type="button"
       onClick={copy}
-      className="rounded-full border border-line-strong px-5 py-3 font-mono text-sm text-muted transition hover:border-ink hover:text-ink"
+      className="rounded-full border border-line-strong px-5 py-2.5 font-mono text-sm transition hover:border-ink"
     >
       <span aria-live="polite">{copied ? "Copied ✓" : "Copy email"}</span>
     </button>

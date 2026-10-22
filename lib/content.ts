@@ -11,21 +11,13 @@ export const profile = {
     github: "https://github.com/chardemas",
     etsy: "https://cldneedlepoint.etsy.com",
   },
-  status: "Looking for in-person SWE roles in NYC",
 };
 
-export const quickFacts = [
-  { label: "Now", value: "SWE I @ Bank of America" },
-  { label: "Studied", value: "CS + Economics, Wake Forest ’25" },
-  { label: "Looking for", value: "In-person SWE roles" },
-  { label: "Based in", value: "New York City" },
-];
-
-export const lookingFor = [
-  { title: "Room to grow", detail: "A role where I can use my full potential across backend, full-stack, and AI/ML." },
-  { title: "In person, in NYC", detail: "I do my best work in the room with my team." },
-  { title: "A young, collaborative team", detail: "People I can build with and learn from every day." },
-  { title: "Purpose", detail: "Products with a clear point, used by real people." },
+// About summary. **bold** spans are highlighted.
+export const summary = [
+  "Software engineer at **Bank of America** on the Core Technology Infrastructure team: automating cloud provisioning with Terraform and Ansible, leading release testing for platform upgrades, and owning incident response for **5 production applications**.",
+  "Computer science and economics graduate of **Wake Forest**, with earlier work in data pipelines at Swiss Re, NLP research, and full-stack side projects built with Next.js, TypeScript, and Postgres.",
+  "Open to a wide range of opportunities. A **quick learner** who picks up new tools and skills on the job.",
 ];
 
 export type Experience = {
@@ -111,28 +103,26 @@ export type Project = {
   art: ProjectArt;
   href?: string;
   linkLabel?: string;
-  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
     title: "kiki",
     kind: "Full-stack web app",
-    status: "Heading to production",
+    status: "In progress",
     blurb:
-      "Low-effort plans with your people. Crews, weekly plans with RSVPs, a “who’s free” heatmap that ranks the best time windows, and expense splitting that settles balances in the fewest transfers. Typed end to end, from React to Postgres, with hashed sessions, rate limits, and row-level security.",
-    stack: ["Next.js", "TypeScript", "oRPC", "Drizzle", "Postgres", "TanStack Query", "Vitest"],
+      "Low-effort plans with your people: crews, weekly plans with RSVPs, a “who’s free” heatmap, and expense splitting. Typed end to end, from React to Postgres.",
+    stack: ["Next.js", "TypeScript", "oRPC", "Drizzle", "Postgres"],
     art: "kiki",
     href: "https://github.com/chardemas/friend-planner",
     linkLabel: "View code",
-    featured: true,
   },
   {
     title: "Needlepoint Chart Converter",
     kind: "Computer vision",
     status: "In progress",
     blurb:
-      "A model that turns inspiration photos into stitchable needlepoint charts: simple shapes and a sensible thread palette, the part auto-pixelation tools get wrong. Trained on my own charts paired with their source photos, plus canvases sold online.",
+      "A model that turns inspiration photos into stitchable needlepoint charts: simple shapes and a sensible thread palette, the part auto-pixelation tools get wrong. Trained on original hand-made charts paired with their source photos, plus canvases sold online.",
     stack: ["Python", "Computer vision", "Data collection"],
     art: "needlepoint",
     href: "https://github.com/chardemas/ndlpt-chart-converter",
@@ -170,10 +160,10 @@ export const projects: Project[] = [
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "HTML", "CSS"] },
   { group: "Web & product", items: ["Next.js", "React", "Tailwind", "Supabase", "Postgres", "Drizzle"] },
-  { group: "ML & data", items: ["SBERT", "TensorFlow", "NLP", "pandas", "pgvector", "Semantic search", "Pipeline design"] },
+  { group: "ML & data", items: ["SBERT", "TensorFlow", "NLP", "pandas", "pgvector", "Semantic search", "Hugging Face", "Stata", "Tableau", "Pipeline design"] },
   {
     group: "Infrastructure",
-    items: ["Linux (RHEL)", "Terraform", "Ansible", "Kubernetes", "OpenShift", "Docker", "AWS EC2", "Splunk", "Artifactory"],
+    items: ["Linux (RHEL)", "Terraform", "Ansible", "Kubernetes", "OpenShift", "Docker", "AWS EC2", "Splunk", "Artifactory", "CI/CD", "YAML"],
   },
   { group: "Enterprise", items: ["WebSphere", "JBoss", "Tomcat", "Apache", "IHS", "Venafi", "TDI"] },
 ];
@@ -200,12 +190,12 @@ export const education = {
     "Macroeconomics",
   ],
   favorites: [
-    { name: "Sports Economics", note: "Copenhagen" },
-    { name: "Economics of Crime", note: "Copenhagen" },
-    { name: "Nordic Mythology", note: "Copenhagen" },
-    { name: "Danish", note: "Copenhagen" },
-    { name: "Game Theory" },
-    { name: "German 210", note: "East German history" },
+    "Sports Economics",
+    "Economics of Crime",
+    "Nordic Mythology",
+    "Danish",
+    "Game Theory",
+    "German 210: East German History",
   ],
   involvement: [
     { name: "Alpha Delta Pi", role: "VP of Event Management", dates: "2022–2023" },
@@ -217,26 +207,13 @@ export const education = {
 export const offClock: { label: string; detail?: string; href?: string; icon: InterestIcon; color: string }[] = [
   {
     label: "Sports",
-    detail: "NHL hockey, equestrian, college basketball, and the game theory behind them",
+    detail: "NHL hockey, equestrian, NCAA basketball",
     icon: "sports",
     color: "var(--color-blue)",
   },
-  { label: "Needlepoint", detail: "I paint and sell canvases on Etsy", href: profile.links.etsy, icon: "needle", color: "var(--color-pink)" },
+  { label: "Needlepoint", detail: "hand-painted canvases on Etsy", icon: "needle", color: "var(--color-pink)" },
   { label: "Mahjong", icon: "mahjong", color: "var(--color-green)" },
   { label: "Reading & film", icon: "film", color: "var(--color-purple)" },
-  { label: "Travel, fashion & NYC", detail: "always exploring", icon: "taxi", color: "var(--color-red)" },
 ];
 
 export type InterestIcon = "sports" | "needle" | "mahjong" | "film" | "taxi";
-
-export const ticker = [
-  "Software Engineer",
-  "New York, NY",
-  "Full-stack",
-  "AI / ML",
-  "Wake Forest ’25",
-  "Needlepoint",
-  "NHL Hockey",
-  "Mahjong",
-  "Open to in-person roles",
-];

@@ -1,6 +1,6 @@
 // Manhattan skyline silhouette with neon-lit windows. Deterministic so server and client agree.
 
-const NEON = ["#ff4fd2", "#ff3366", "#3b8cff", "#3dffa2", "#b45cff"];
+const NEON = ["#ff7eb6", "#ff6b81", "#6ea8ff", "#5eead4", "#b69cff"];
 
 function rand(seed: number) {
   const x = Math.sin(seed * 9301 + 49297) * 233280;
@@ -36,8 +36,8 @@ export default function Skyline({ className = "" }: { className?: string }) {
     <svg viewBox={`0 0 1200 ${H}`} preserveAspectRatio="xMidYMax slice" className={className} aria-hidden>
       <defs>
         <linearGradient id="sky-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1a1622" />
-          <stop offset="100%" stopColor="#0f0d12" />
+          <stop offset="0%" stopColor="#1a2138" />
+          <stop offset="100%" stopColor="#0d1222" />
         </linearGradient>
       </defs>
       {buildings.map((b, i) => {
@@ -69,7 +69,7 @@ export default function Skyline({ className = "" }: { className?: string }) {
               <path
                 d={`M${cx - 14} ${top} v-14 h28 v14 M${cx - 8} ${top - 14} v-14 h16 v14 M${cx - 3} ${top - 28} v-14 h6 v14 M${cx} ${top - 42} v-26`}
                 fill="url(#sky-fade)"
-                stroke="#ff4fd2"
+                stroke="#ff7eb6"
                 strokeOpacity="0.6"
               />
             )}
@@ -77,7 +77,7 @@ export default function Skyline({ className = "" }: { className?: string }) {
               <path
                 d={`M${cx - 14} ${top} Q ${cx} ${top - 60} ${cx + 14} ${top} Z M${cx} ${top - 44} v-28`}
                 fill="url(#sky-fade)"
-                stroke="#3b8cff"
+                stroke="#6ea8ff"
                 strokeOpacity="0.7"
               />
             )}

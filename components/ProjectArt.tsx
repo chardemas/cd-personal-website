@@ -73,16 +73,16 @@ function NeedlepointArt() {
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
       <defs>
         <radialGradient id="np-photo" cx="40%" cy="35%" r="75%">
-          <stop offset="0%" stopColor="#ff9be6" />
-          <stop offset="55%" stopColor="#ff4fd2" />
-          <stop offset="100%" stopColor="#6b1f8a" />
+          <stop offset="0%" stopColor="#ffc2dc" />
+          <stop offset="55%" stopColor="#ff7eb6" />
+          <stop offset="100%" stopColor="#5b3d9e" />
         </radialGradient>
         <filter id="np-soft">
           <feGaussianBlur stdDeviation="1.6" />
         </filter>
       </defs>
       <g transform="translate(26 36)">
-        <rect width="110" height="118" rx="10" fill="#2a2520" />
+        <rect width="110" height="118" rx="10" fill="#1b2238" />
         <path
           d="M55 98 C 20 72, 8 54, 18 36 C 27 20, 47 22, 55 38 C 63 22, 83 20, 92 36 C 102 54, 90 72, 55 98 Z"
           fill="url(#np-photo)"
@@ -96,10 +96,10 @@ function NeedlepointArt() {
         <path d="M0 0 H 22 M 16 -5 L 22 0 L 16 5" />
       </g>
       <g transform="translate(180 36)">
-        <rect width="130" height="118" rx="10" fill="#2a2520" />
+        <rect width="130" height="118" rx="10" fill="#1b2238" />
         {HEART.map((row, y) =>
           row.split("").map((ch, x) => {
-            const fill = ch === "X" ? (y < 3 && x > 1 && x < 4 ? "#ff9be6" : "#ff4fd2") : "#efe3cf";
+            const fill = ch === "X" ? (y < 3 && x > 1 && x < 4 ? "#ffc2dc" : "#ff7eb6") : "#e8e6f0";
             return (
               <rect
                 key={`${x}-${y}`}
@@ -124,14 +124,14 @@ function NeedlepointArt() {
 
 function OutfitsArt() {
   const looks = [
-    { score: "0.92", colors: ["#b45cff", "#efe3cf", "#c9a46a"] },
-    { score: "0.88", colors: ["#3b8cff", "#1f2a44", "#efe3cf"] },
-    { score: "0.85", colors: ["#3dffa2", "#ff3366", "#3a2f28"] },
+    { score: "0.92", colors: ["#b69cff", "#e8e6f0", "#c9a46a"] },
+    { score: "0.88", colors: ["#6ea8ff", "#1f2a44", "#e8e6f0"] },
+    { score: "0.85", colors: ["#5eead4", "#ff6b81", "#2a3150"] },
   ];
   return (
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
       <g transform="translate(20 20)">
-        <rect width="280" height="30" rx="15" fill="#221f1b" stroke="var(--color-line-strong)" />
+        <rect width="280" height="30" rx="15" fill="#161c30" stroke="var(--color-line-strong)" />
         <text x="16" y="19" fill="var(--color-muted)" fontSize="10" style={mono}>
           rooftop wedding · NYC · size 4 · $150
         </text>
@@ -139,7 +139,7 @@ function OutfitsArt() {
       </g>
       {looks.map((l, i) => (
         <g key={i} transform={`translate(${20 + i * 96} 64)`}>
-          <rect width="88" height="108" rx="10" fill="#221f1b" stroke="var(--color-line)" />
+          <rect width="88" height="108" rx="10" fill="#161c30" stroke="var(--color-line)" />
           <rect x="22" y="12" width="44" height="34" rx="8" fill={l.colors[0]} />
           <rect x="16" y="50" width="56" height="26" rx="6" fill={l.colors[1]} opacity="0.9" />
           <rect x="30" y="80" width="28" height="8" rx="4" fill={l.colors[2]} />
@@ -163,7 +163,7 @@ function PatentsArt() {
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
       {steps.map((s, i) => (
         <g key={s.label} transform={`translate(${14 + i * 77} 70)`}>
-          <rect width="66" height="50" rx="10" fill="#221f1b" stroke={s.color} strokeOpacity="0.6" />
+          <rect width="66" height="50" rx="10" fill="#161c30" stroke={s.color} strokeOpacity="0.6" />
           <circle cx="12" cy="13" r="3.5" fill={s.color} />
           <text x="33" y="34" fill="var(--color-ink)" fontSize="9" textAnchor="middle" style={mono}>
             {s.label}
@@ -197,7 +197,7 @@ function EmailArt() {
       </text>
       {rows.map((r, i) => (
         <g key={i} transform={`translate(20 ${44 + i * 34})`}>
-          <rect width="280" height="26" rx="8" fill="#221f1b" />
+          <rect width="280" height="26" rx="8" fill="#161c30" />
           <rect width={280 * r.w} height="26" rx="8" fill={r.c} fillOpacity="0.18" />
           <circle cx="13" cy="13" r="4" fill={r.c} />
           <text x="26" y="17" fill="var(--color-ink)" fontSize="10" style={mono}>

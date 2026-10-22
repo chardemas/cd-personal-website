@@ -5,10 +5,10 @@ import { profile } from "@/lib/content";
 
 const sections = [
   { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -56,7 +56,7 @@ export default function Nav() {
                 href={`#${s.id}`}
                 aria-current={active === s.id ? "true" : undefined}
                 className={`rounded-full px-3 py-1.5 transition-colors ${
-                  active === s.id ? "bg-white/8 text-ink" : "text-muted hover:text-ink"
+                  active === s.id ? "bg-white/8 text-ink" : "text-ink/85 hover:text-pink"
                 }`}
               >
                 {s.label}
@@ -65,7 +65,7 @@ export default function Nav() {
           ))}
         </ul>
         <div className="flex items-center gap-2">
-          <a href="#contact" className="rounded-full px-3 py-1.5 text-sm text-muted hover:text-ink lg:hidden">
+          <a href="#contact" className="rounded-full px-3 py-1.5 text-sm hover:text-pink lg:hidden">
             Contact
           </a>
           <a
@@ -82,16 +82,12 @@ export default function Nav() {
 }
 
 function Monogram() {
-  // 3x3 block of neon dashes
-  const colors = ["#ff4fd2", "#b45cff", "#ff3366", "#b45cff", "#ff4fd2", "#3dffa2", "#ff3366", "#3dffa2", "#3b8cff"];
   return (
-    <svg viewBox="0 0 30 30" className="h-7 w-7 transition-transform duration-500 group-hover:rotate-90" aria-hidden>
-      <rect width="30" height="30" rx="8" fill="#1b1916" />
-      {colors.map((c, i) => {
-        const x = 6 + (i % 3) * 9;
-        const y = 6 + Math.floor(i / 3) * 9;
-        return <rect key={i} x={x - 5} y={y - 1.8} width="10" height="3.6" rx="1.8" fill={c} transform={`rotate(-45 ${x} ${y})`} />;
-      })}
-    </svg>
+    <span
+      className="flex h-8 w-8 items-center justify-center rounded-[10px] border border-line-strong font-serif text-[15px] italic transition-colors group-hover:border-pink"
+      aria-hidden
+    >
+      <span className="text-gradient">CD</span>
+    </span>
   );
 }

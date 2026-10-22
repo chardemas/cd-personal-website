@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0c0b0a;
-  --color-surface: #141210;
-  --color-surface-2: #1b1916;
-  --color-line: rgb(243 237 228 / 0.09);
-  --color-line-strong: rgb(243 237 228 / 0.16);
-  --color-ink: #f3ede4;
-  --color-muted: #aaa296;
-  --color-faint: #746c62;
+  --color-bg: #0a0e1a;
+  --color-surface: #10152a;
+  --color-surface-2: #151b33;
+  --color-line: rgb(226 230 255 / 0.1);
+  --color-line-strong: rgb(226 230 255 / 0.18);
+  --color-ink: #f6f4ef;
+  --color-muted: #f6f4ef;
+  --color-faint: #d4cdfa;
 
-  /* neon accents */
-  --color-pink: #ff4fd2;
-  --color-red: #ff3366;
-  --color-blue: #3b8cff;
-  --color-green: #3dffa2;
-  --color-purple: #b45cff;
+  /* jewel-tone accents */
+  --color-pink: #ff7eb6;
+  --color-red: #ff6b81;
+  --color-blue: #6ea8ff;
+  --color-green: #5eead4;
+  --color-purple: #b69cff;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -45,7 +45,7 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: radial-gradient(rgb(243 237 228 / 0.07) 1px, transparent 1.2px);
+  background-image: radial-gradient(rgb(226 230 255 / 0.06) 1px, transparent 1.2px);
   background-size: 18px 18px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 85%);
 }
@@ -55,18 +55,12 @@ body {
   pointer-events: none;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.22;
-}
-
-.dashed-rule {
-  height: 2px;
-  background-image: linear-gradient(90deg, var(--color-line-strong) 0 10px, transparent 10px 16px);
-  background-size: 16px 2px;
+  opacity: 0.13;
 }
 
 .card {
   border: 1px solid var(--color-line);
-  background: linear-gradient(180deg, rgb(255 255 255 / 0.025), rgb(255 255 255 / 0.01));
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.015));
   border-radius: 1.25rem;
 }
 
@@ -105,48 +99,16 @@ body {
 }
 
 .pulse-dot {
-  box-shadow: 0 0 0 0 rgb(61 255 162 / 0.6);
+  box-shadow: 0 0 0 0 rgb(94 234 212 / 0.6);
   animation: pulse 2.4s infinite;
 }
 
 @keyframes pulse {
   70% {
-    box-shadow: 0 0 0 8px rgb(61 255 162 / 0);
+    box-shadow: 0 0 0 8px rgb(94 234 212 / 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgb(61 255 162 / 0);
-  }
-}
-
-/* Neon-sign glow for accent text. */
-.neon {
-  text-shadow:
-    0 0 6px color-mix(in srgb, currentColor 70%, transparent),
-    0 0 22px color-mix(in srgb, currentColor 45%, transparent);
-}
-
-.neon-box {
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, currentColor 60%, transparent),
-    0 0 18px color-mix(in srgb, currentColor 35%, transparent);
-}
-
-/* Times Square-style news ticker. */
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 40s linear infinite;
-}
-
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
+    box-shadow: 0 0 0 0 rgb(94 234 212 / 0);
   }
 }
 
@@ -159,7 +121,7 @@ body {
     var(--color-blue) 70%,
     var(--color-green)
   );
-  box-shadow: 0 0 14px rgb(180 92 255 / 0.45);
+  box-shadow: 0 0 8px rgb(182 156 255 / 0.25);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -185,6 +147,10 @@ body {
   }
 }
 
-.neon-icon {
-  filter: drop-shadow(0 0 3px currentColor) drop-shadow(0 0 10px color-mix(in srgb, currentColor 50%, transparent));
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-pink), var(--color-purple) 50%, var(--color-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

@@ -127,4 +127,4 @@ export function InterestGlyph({ icon, className = "h-5 w-5" }: { icon: InterestI
   }
 }
 
-export const tickerIcons = [AppleIcon, TaxiIcon, EmpireStateIcon, PizzaIcon, SubwayIcon, LibertyIcon];
+export const nycIcons = [AppleIcon, TaxiIcon, EmpireStateIcon, PizzaIcon, SubwayIcon, LibertyIcon];
