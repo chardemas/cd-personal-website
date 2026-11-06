@@ -115,36 +115,49 @@ function NeedlepointArt() {
           }),
         )}
         <text x="65" y="136" fill="var(--color-faint)" fontSize="9" textAnchor="middle" style={mono}>
-          stitchable chart · 3 colors
+          DMC chart · 3 threads
         </text>
       </g>
     </svg>
   );
 }
 
-function OutfitsArt() {
-  const looks = [
-    { score: "0.92", colors: ["#b69cff", "#e8e6f0", "#c9a46a"] },
-    { score: "0.88", colors: ["#6ea8ff", "#1f2a44", "#e8e6f0"] },
-    { score: "0.85", colors: ["#5eead4", "#ff6b81", "#2a3150"] },
+function NightcapArt() {
+  const apps = [
+    { label: "texts to ex", c: "var(--color-red)", on: false },
+    { label: "shopping", c: "var(--color-red)", on: false },
+    { label: "venmo", c: "var(--color-red)", on: false },
+    { label: "uber · lyft", c: "var(--color-green)", on: true },
   ];
   return (
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
-      <g transform="translate(20 20)">
-        <rect width="280" height="30" rx="15" fill="#161c30" stroke="var(--color-line-strong)" />
-        <text x="16" y="19" fill="var(--color-muted)" fontSize="10" style={mono}>
-          rooftop wedding · NYC · size 4 · $150
+      <g transform="translate(30 16)">
+        <rect width="92" height="158" rx="16" fill="#161c30" stroke="var(--color-line-strong)" />
+        <rect x="34" y="8" width="24" height="5" rx="2.5" fill="var(--color-line-strong)" />
+        <path d="M54 44 A 15 15 0 1 1 40 26 A 11 11 0 0 0 54 44 Z" fill="var(--color-purple)" />
+        <text x="46" y="74" fill="var(--color-ink)" fontSize="10" textAnchor="middle" style={mono} fontWeight="600">
+          Not tonight
         </text>
-        <circle cx="262" cy="15" r="9" fill="var(--color-pink)" />
+        <text x="46" y="88" fill="var(--color-faint)" fontSize="8" textAnchor="middle" style={mono}>
+          until 6:00 AM
+        </text>
+        <rect x="12" y="104" width="68" height="20" rx="10" fill="var(--color-pink)" />
+        <text x="46" y="117" fill="var(--color-bg)" fontSize="8" textAnchor="middle" style={mono} fontWeight="600">
+          prove you’re ok
+        </text>
+        <text x="46" y="142" fill="var(--color-faint)" fontSize="8" textAnchor="middle" style={mono}>
+          ride home →
+        </text>
       </g>
-      {looks.map((l, i) => (
-        <g key={i} transform={`translate(${20 + i * 96} 64)`}>
-          <rect width="88" height="108" rx="10" fill="#161c30" stroke="var(--color-line)" />
-          <rect x="22" y="12" width="44" height="34" rx="8" fill={l.colors[0]} />
-          <rect x="16" y="50" width="56" height="26" rx="6" fill={l.colors[1]} opacity="0.9" />
-          <rect x="30" y="80" width="28" height="8" rx="4" fill={l.colors[2]} />
-          <text x="44" y="102" fill="var(--color-faint)" fontSize="9" textAnchor="middle" style={mono}>
-            sim {l.score}
+      {apps.map((a, i) => (
+        <g key={a.label} transform={`translate(144 ${30 + i * 36})`}>
+          <rect width="156" height="26" rx="8" fill="#161c30" />
+          <circle cx="13" cy="13" r="4" fill={a.c} />
+          <text x="26" y="17" fill={a.on ? "var(--color-ink)" : "var(--color-muted)"} fontSize="10" style={mono}>
+            {a.label}
+          </text>
+          <text x="146" y="17" fill={a.c} fontSize="9" textAnchor="end" style={mono}>
+            {a.on ? "open" : "shielded"}
           </text>
         </g>
       ))}
@@ -215,8 +228,8 @@ export default function ProjectArt({ kind }: { kind: ArtKind }) {
       return <KikiArt />;
     case "needlepoint":
       return <NeedlepointArt />;
-    case "outfits":
-      return <OutfitsArt />;
+    case "nightcap":
+      return <NightcapArt />;
     case "patents":
       return <PatentsArt />;
     case "email":

@@ -92,7 +92,7 @@ export const experience: Experience[] = [
   },
 ];
 
-export type ProjectArt = "kiki" | "needlepoint" | "outfits" | "patents" | "email";
+export type ProjectArt = "kiki" | "needlepoint" | "nightcap" | "patents" | "email";
 
 export type Project = {
   title: string;
@@ -118,24 +118,26 @@ export const projects: Project[] = [
     linkLabel: "View code",
   },
   {
-    title: "Needlepoint Chart Converter",
-    kind: "Computer vision",
+    title: "Canvas Chart Maker",
+    kind: "Web app",
     status: "In progress",
     blurb:
-      "A model that turns inspiration photos into stitchable needlepoint charts: simple shapes and a sensible thread palette, the part auto-pixelation tools get wrong. Trained on original hand-made charts paired with their source photos, plus canvases sold online.",
-    stack: ["Python", "Computer vision", "Data collection"],
+      "Turns any picture into a needlepoint chart: in-browser subject cut-out, k-means color reduction matched to DMC threads, a symbol chart with a marked center, a print version sized in inches, and a stitch-by-stitch checklist.",
+    stack: ["React", "TypeScript", "Vite", "ONNX", "Web Workers"],
     art: "needlepoint",
-    href: "https://github.com/chardemas/ndlpt-chart-converter",
+    href: "https://github.com/chardemas/canvas-chart-maker",
     linkLabel: "View code",
   },
   {
-    title: "Rental Outfit Planner",
-    kind: "AI product",
+    title: "Nightcap",
+    kind: "iOS app",
     status: "In progress",
     blurb:
-      "Enter an event, date, city, size, and budget, and get back complete rental outfits. Built on semantic search over rental inventory.",
-    stack: ["Next.js", "TypeScript", "Supabase", "pgvector"],
-    art: "outfits",
+      "Puts your phone into a protective mode while you’re out drinking: shields your ex, shopping, money, and social apps (rides home stay open) and makes you pass a sobriety challenge to end early.",
+    stack: ["Swift", "SwiftUI", "Screen Time API", "DeviceActivity"],
+    art: "nightcap",
+    href: "https://github.com/chardemas/nightcap_app",
+    linkLabel: "View code",
   },
   {
     title: "Patents ↔ Occupations",
