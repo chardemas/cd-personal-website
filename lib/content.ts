@@ -15,7 +15,7 @@ export const profile = {
 
 // About summary. **bold** spans are highlighted.
 export const summary = [
-  "Software engineer at **Bank of America** on the Core Technology Infrastructure team: automating cloud provisioning with Terraform and Ansible, leading release testing for platform upgrades, and owning incident response for **5 production applications**.",
+  "Software engineer at **Bank of America** on the Application and Database Services team: automating cloud provisioning with Terraform and Ansible, moving apps from VMs to containers on OpenShift, and owning incident response for **5 production applications**.",
   "Computer science and economics graduate of **Wake Forest**, with earlier work in data pipelines at Swiss Re, NLP research, and full-stack side projects built with Next.js, TypeScript, and Postgres.",
   "Open to a wide range of opportunities. A **quick learner** who picks up new tools and skills on the job.",
 ];
@@ -34,17 +34,18 @@ export const experience: Experience[] = [
   {
     role: "Software Engineer I",
     org: "Bank of America",
-    team: "Core Technology Infrastructure",
+    team: "Application and Database Services",
     location: "Jersey City, NJ",
     dates: "Jul 2025 — Present",
     points: [
-      "Own incident management for **5 production applications**, using Splunk and Ansible Tower logs to drive root-cause analysis and remediation.",
-      "Automate server configuration and provisioning across public and private cloud with **Terraform** and **Ansible**.",
-      "Containerized and deployed IBM Application Modernization Accelerator on **OpenShift** as a proof of concept for moving applications from VMs to containers.",
+      "Drove a proof of concept deploying IBM Application Modernization Accelerator on **OpenShift**, securing restricted namespaces, cluster-policy exceptions, and privileged access so app teams across the bank can move from VMs to containers.",
+      "Automate provisioning and configuration of Java application and web servers across AWS and private cloud with **Terraform** and **Ansible**, cutting environment setup from **2+ hours to under 15 minutes**.",
+      "Own incident response for **5 production applications**: resolved **400+ incidents** and cut repeat issues by **35%**.",
+      "Migrated middleware provisioning from a legacy internal tool to **Terraform Enterprise**, consolidating 3 products onto one provisioning platform for all app teams.",
       "Lead release testing for platform upgrades across containerized and legacy Java middleware (WebSphere, JBoss, Tomcat, Apache, IHS).",
       "Technical onboarding lead for **5 new engineers**; wrote the documentation for procedures that previously had none.",
     ],
-    tags: ["Terraform", "Ansible", "OpenShift", "Splunk", "Linux"],
+    tags: ["Terraform", "Ansible", "OpenShift", "AWS", "Splunk", "Linux"],
   },
   {
     role: "Undergraduate Research Assistant",
@@ -63,10 +64,10 @@ export const experience: Experience[] = [
     location: "Jersey City, NJ",
     dates: "Jun — Aug 2024",
     points: [
-      "Designed and built an incident-reporting dashboard used for monitoring by multiple engineering teams.",
+      "Designed and built an incident-reporting dashboard with **Grafana** and **MongoDB**, used by 3 engineering teams.",
       "Hackathon: built a **Python backend that summarized unread email and ranked it by urgency** with NLP classification over message content and sender metadata.",
     ],
-    tags: ["Python", "NLP", "Dashboards"],
+    tags: ["Python", "NLP", "Grafana", "MongoDB"],
   },
   {
     role: "Portfolio Analytics Engineering Intern",
@@ -161,11 +162,11 @@ export const projects: Project[] = [
 
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "HTML", "CSS"] },
-  { group: "Web & product", items: ["Next.js", "React", "Tailwind", "Supabase", "Postgres", "Drizzle"] },
-  { group: "ML & data", items: ["SBERT", "TensorFlow", "NLP", "pandas", "pgvector", "Semantic search", "Hugging Face", "Stata", "Tableau", "Pipeline design"] },
+  { group: "Web & product", items: ["Next.js", "React", "Vite", "Vitest", "oRPC", "Drizzle", "Postgres", "Supabase", "MongoDB", "REST APIs", "Git", "Tailwind"] },
+  { group: "ML & data", items: ["SBERT", "TensorFlow", "NLP", "pandas", "pgvector", "Semantic search", "ONNX Runtime", "Hugging Face", "Stata", "Tableau", "Pipeline design"] },
   {
     group: "Infrastructure",
-    items: ["Linux (RHEL)", "Terraform", "Ansible", "Kubernetes", "OpenShift", "Docker", "AWS EC2", "Splunk", "Artifactory", "CI/CD", "YAML"],
+    items: ["Linux (RHEL)", "Terraform", "Ansible", "Kubernetes", "OpenShift", "Docker", "AWS EC2", "Splunk", "Grafana", "Artifactory", "CI/CD", "YAML"],
   },
   { group: "Enterprise", items: ["WebSphere", "JBoss", "Tomcat", "Apache", "IHS", "Venafi", "TDI"] },
 ];
