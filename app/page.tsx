@@ -279,30 +279,77 @@ export default function Home() {
 
         {/* ── Projects ─────────────────────────────────────── */}
         <Section id="projects" bullet="5" title="Projects" color="var(--color-green)">
-          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((p) => (
-              <article key={p.title} className="group flex flex-col">
+          {projects
+            .filter((p) => p.featured)
+            .map((p) => (
+              <article key={p.title} className="mb-12 grid items-center gap-6 md:grid-cols-[1.1fr_1fr] md:gap-8">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-surface-2">
-                  <div className="absolute inset-0 flex items-center justify-center p-2">
+                  <div className="absolute inset-0 flex items-center justify-center p-3">
                     <ProjectArt kind={p.art} />
                   </div>
                 </div>
-                <p className="mt-4 font-mono text-[11px] tracking-widest text-green uppercase">
-                  {p.kind} · {p.status}
-                </p>
-                <h3 className="mt-1.5 text-lg font-medium tracking-tight">
-                  {p.href ? (
-                    <a href={p.href} className="inline-flex items-center gap-1.5 hover:text-pink">
-                      {p.title} <ArrowIcon />
-                    </a>
-                  ) : (
-                    p.title
+                <div>
+                  <p className="font-mono text-[11px] tracking-widest text-green uppercase">
+                    Featured · {p.kind} · {p.status}
+                  </p>
+                  <h3 className="mt-1.5 text-2xl font-medium tracking-tight">
+                    {p.href ? (
+                      <a href={p.href} className="inline-flex items-center gap-1.5 hover:text-pink">
+                        {p.title} <ArrowIcon />
+                      </a>
+                    ) : (
+                      p.title
+                    )}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed">{p.blurb}</p>
+                  {p.highlights && (
+                    <ul className="mt-3 space-y-1.5 text-sm leading-relaxed">
+                      {p.highlights.map((h) => (
+                        <li key={h} className="flex gap-2">
+                          <span className="text-pink">→</span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed">{p.blurb}</p>
-                <p className="mt-3 font-mono text-[11px] text-faint">{dotList(p.stack)}</p>
+                  <p className="mt-3 font-mono text-[11px] text-faint">{dotList(p.stack)}</p>
+                  {p.href && (
+                    <a
+                      href={p.href}
+                      className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition hover:bg-pink"
+                    >
+                      {p.linkLabel ?? "View"} <ArrowIcon className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
+          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
+            {projects
+              .filter((p) => !p.featured)
+              .map((p) => (
+                <article key={p.title} className="group flex flex-col">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-surface-2">
+                    <div className="absolute inset-0 flex items-center justify-center p-2">
+                      <ProjectArt kind={p.art} />
+                    </div>
+                  </div>
+                  <p className="mt-4 font-mono text-[11px] tracking-widest text-green uppercase">
+                    {p.kind} · {p.status}
+                  </p>
+                  <h3 className="mt-1.5 text-lg font-medium tracking-tight">
+                    {p.href ? (
+                      <a href={p.href} className="inline-flex items-center gap-1.5 hover:text-pink">
+                        {p.title} <ArrowIcon />
+                      </a>
+                    ) : (
+                      p.title
+                    )}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed">{p.blurb}</p>
+                  <p className="mt-3 font-mono text-[11px] text-faint">{dotList(p.stack)}</p>
+                </article>
+              ))}
           </div>
         </Section>
 

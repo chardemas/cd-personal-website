@@ -93,7 +93,7 @@ export const experience: Experience[] = [
   },
 ];
 
-export type ProjectArt = "kiki" | "needlepoint" | "nightcap" | "patents" | "email";
+export type ProjectArt = "resell" | "needlepoint" | "nightcap" | "patents" | "email";
 
 export type Project = {
   title: string;
@@ -104,19 +104,29 @@ export type Project = {
   art: ProjectArt;
   href?: string;
   linkLabel?: string;
+  /** Shown as the large card at the top of Projects */
+  featured?: boolean;
+  highlights?: string[];
 };
 
 export const projects: Project[] = [
   {
-    title: "kiki",
-    kind: "Full-stack web app",
+    title: "Resell Photo Optimizer",
+    kind: "Web app",
     status: "In progress",
     blurb:
-      "Low-effort plans with your people: crews, weekly plans with RSVPs, a “who’s free” heatmap, and expense splitting. Typed end to end, from React to Postgres.",
-    stack: ["Next.js", "TypeScript", "oRPC", "Drizzle", "Postgres"],
-    art: "kiki",
-    href: "https://github.com/chardemas/friend-planner",
+      "Takes a secondhand clothing item from a few phone photos to a priced, ready-to-post Depop listing in minutes.",
+    stack: ["React", "TypeScript", "Claude API", "Supabase", "ONNX"],
+    art: "resell",
+    href: "https://github.com/chardemas/resell-photo-optimizer",
     linkLabel: "View code",
+    featured: true,
+    highlights: [
+      "AI pricing agent: reads the tag photo, searches retail and resale listings, and suggests a price with comps",
+      "ML background removal, centering, and exposure correction for clean white-background photos",
+      "Writes a ready-to-paste Depop listing from my wear notes and disclaimer",
+      "Offline-first storage that syncs items and photos across phone and laptop",
+    ],
   },
   {
     title: "Canvas Chart Maker",

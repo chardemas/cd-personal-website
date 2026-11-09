@@ -4,51 +4,33 @@ import type { ProjectArt as ArtKind } from "@/lib/content";
 
 const mono = { fontFamily: "var(--font-mono)" };
 
-function KikiArt() {
-  const days = ["M", "T", "W", "T", "F", "S", "S"];
-  const rows = 6;
-  // deterministic "how many people are free" values, 0..4
-  const free = (d: number, r: number) => (d * 7 + r * 3 + ((d * r) % 4)) % 5;
-  const best = { d: 4, r: 4 };
+// A t-shirt outline in 0..100 units, placed at (x, y) and scaled to `size` px wide
+const TEE = [[21, 5], [37, 0], [45, 8], [55, 8], [63, 0], [79, 5], [100, 29], [87, 39], [76, 29], [76, 100], [24, 100], [24, 29], [13, 39], [0, 29]];
+const tee = (x: number, y: number, size: number) =>
+  TEE.map(([px, py]) => `${x + (px * size) / 100},${y + (py * size) / 100}`).join(" ");
+
+function ResellArt() {
   return (
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
       <text x="20" y="26" fill="var(--color-faint)" fontSize="10" style={mono}>
-        who’s free · this week
+        before → depop-ready
       </text>
-      {days.map((d, i) => (
-        <text key={i} x={62 + i * 34} y="48" fill="var(--color-muted)" fontSize="10" textAnchor="middle" style={mono}>
-          {d}
-        </text>
+      {/* before: on the floor */}
+      <rect x="20" y="40" width="124" height="124" rx="10" fill="#3b2d24" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <line key={i} x1="20" y1={52 + i * 22} x2="144" y2={60 + i * 22} stroke="#2e231c" strokeWidth="5" />
       ))}
-      {["6p", "7p", "8p", "9p", "10p", "11p"].map((t, r) => (
-        <text key={t} x="30" y={70 + r * 20} fill="var(--color-faint)" fontSize="9" textAnchor="end" style={mono}>
-          {t}
-        </text>
-      ))}
-      {days.map((_, d) =>
-        Array.from({ length: rows }, (_, r) => {
-          const isBest = d === best.d && r === best.r;
-          const v = isBest ? 4 : free(d, r);
-          return (
-            <rect
-              key={`${d}-${r}`}
-              x={47 + d * 34}
-              y={57 + r * 20}
-              width="30"
-              height="16"
-              rx="4"
-              fill="var(--color-green)"
-              fillOpacity={0.08 + v * 0.18}
-              stroke={isBest ? "var(--color-pink)" : "none"}
-              strokeWidth="2"
-            />
-          );
-        }),
-      )}
-      <g transform="translate(206 150)">
+      <polygon points={tee(37, 58, 90)} fill="var(--color-blue)" fillOpacity="0.55" />
+      <text x="166" y="106" fill="var(--color-faint)" fontSize="14" textAnchor="middle" style={mono}>
+        →
+      </text>
+      {/* after: on white */}
+      <rect x="188" y="40" width="124" height="124" rx="10" fill="var(--color-ink)" />
+      <polygon points={tee(205, 58, 90)} fill="var(--color-blue)" />
+      <g transform="translate(214 150)">
         <rect width="98" height="24" rx="12" fill="var(--color-pink)" />
         <text x="49" y="16" fill="var(--color-bg)" fontSize="10" textAnchor="middle" style={mono} fontWeight="600">
-          Fri 10p · 4/4 free
+          list at $36
         </text>
       </g>
     </svg>
@@ -224,8 +206,8 @@ function EmailArt() {
 
 export default function ProjectArt({ kind }: { kind: ArtKind }) {
   switch (kind) {
-    case "kiki":
-      return <KikiArt />;
+    case "resell":
+      return <ResellArt />;
     case "needlepoint":
       return <NeedlepointArt />;
     case "nightcap":
