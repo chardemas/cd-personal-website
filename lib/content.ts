@@ -15,8 +15,8 @@ export const profile = {
 
 // About summary. **bold** spans are highlighted.
 export const summary = [
-  "Software engineer at **Bank of America** on the Application and Database Services team: automating cloud provisioning with Terraform and Ansible, moving apps from VMs to containers on OpenShift, and owning incident response for **5 production applications**.",
-  "Computer science and economics graduate of **Wake Forest**, with earlier work in data pipelines at Swiss Re, NLP research, and full-stack side projects built with Next.js, TypeScript, and Postgres.",
+  "Software engineer at **Bank of America**: automating cloud provisioning with Terraform and Ansible, migrating apps from VMs to containers on OpenShift, and owning incident response for **5 production applications**.",
+  "Computer science and economics graduate of **Wake Forest**. Before Bank of America, built data pipelines at Swiss Re and did NLP research in economics. Builds full-stack apps on the side that pull together web front ends, databases, APIs, and machine learning.",
   "Open to a wide range of opportunities. A **quick learner** who picks up new tools and skills on the job.",
 ];
 
@@ -111,6 +111,24 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Canvas Chart Creator",
+    kind: "Web app",
+    status: "In progress",
+    blurb:
+      "Turns any picture into a needlepoint chart, then prints it straight onto blank canvas with each stitch on its own thread crossing. Built to run my needlepoint shop, from design to Etsy listing.",
+    stack: ["React", "TypeScript", "Web Workers", "Supabase", "ONNX", "Claude API", "Python", "OpenCV"],
+    art: "needlepoint",
+    href: "https://github.com/chardemas/canvas-chart-maker",
+    linkLabel: "View code",
+    featured: true,
+    highlights: [
+      "Reduces a picture to its main colors with k-means and matches each one to a real DMC thread by CIEDE2000 color distance",
+      "Print on canvas: scans the taped canvas, finds about 10,000 holes per page, and corrects for the printer's measured drift, which halved placement error on a test print",
+      "Charts sync across devices, and each customer gets a private link to tick off stitches as they go",
+      "Makes Etsy listing photos, title, description, and tags from the finished chart",
+    ],
+  },
+  {
     title: "Resell Photo Optimizer",
     kind: "Web app",
     status: "In progress",
@@ -120,24 +138,12 @@ export const projects: Project[] = [
     art: "resell",
     href: "https://github.com/chardemas/resell-photo-optimizer",
     linkLabel: "View code",
-    featured: true,
     highlights: [
       "AI pricing agent: reads the tag photo, searches retail and resale listings, and suggests a price with comps",
       "ML background removal, centering, and exposure correction for clean white-background photos",
       "Writes a ready-to-paste Depop listing from my wear notes and disclaimer",
       "Offline-first storage that syncs items and photos across phone and laptop",
     ],
-  },
-  {
-    title: "Canvas Chart Maker",
-    kind: "Web app",
-    status: "In progress",
-    blurb:
-      "Turns any picture into a needlepoint chart: in-browser subject cut-out, k-means color reduction matched to DMC threads, a symbol chart with a marked center, a print version sized in inches, and a stitch-by-stitch checklist.",
-    stack: ["React", "TypeScript", "Vite", "ONNX", "Web Workers"],
-    art: "needlepoint",
-    href: "https://github.com/chardemas/canvas-chart-maker",
-    linkLabel: "View code",
   },
   {
     title: "Nightcap",
