@@ -34,7 +34,6 @@ export const experience: Experience[] = [
   {
     role: "Software Engineer I",
     org: "Bank of America",
-    team: "Application and Database Services",
     location: "Jersey City, NJ",
     dates: "Jul 2025 — Present",
     points: [
