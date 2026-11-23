@@ -92,7 +92,7 @@ export const experience: Experience[] = [
   },
 ];
 
-export type ProjectArt = "resell" | "needlepoint" | "nightcap" | "patents" | "email";
+export type ProjectArt = "resell" | "needlepoint" | "cyberdeck" | "patents" | "email";
 
 export type Project = {
   title: string;
@@ -145,14 +145,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Nightcap",
-    kind: "iOS app",
+    title: "Virtual Pet Cyberdeck",
+    kind: "Raspberry Pi cyberdeck",
     status: "In progress",
     blurb:
-      "Puts your phone into a protective mode while you’re out drinking: shields your ex, shopping, money, and social apps (rides home stay open) and makes you pass a sobriety challenge to end early.",
-    stack: ["Swift", "SwiftUI", "Screen Time API", "DeviceActivity"],
-    art: "nightcap",
-    href: "https://github.com/chardemas/nightcap_app",
+      "A virtual pet horse living in a pixel-art meadow on a Raspberry Pi touchscreen. It follows the real time of day, gets hungry, wants treats, and trots over to greet you when a motion sensor sees you walk by.",
+    stack: ["Python", "Pygame", "Raspberry Pi", "gpiozero", "WS2812B LEDs"],
+    art: "cyberdeck",
+    href: "https://github.com/chardemas/cyberdeck-pet",
     linkLabel: "View code",
   },
   {

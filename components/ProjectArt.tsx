@@ -104,43 +104,77 @@ function NeedlepointArt() {
   );
 }
 
-function NightcapArt() {
-  const apps = [
-    { label: "texts to ex", c: "var(--color-red)", on: false },
-    { label: "shopping", c: "var(--color-red)", on: false },
-    { label: "venmo", c: "var(--color-red)", on: false },
-    { label: "uber · lyft", c: "var(--color-green)", on: true },
+const HORSE = [
+  "..........MH..",
+  ".........MHHH.",
+  "........MHHHHH",
+  "T......MHHH...",
+  "TT.HHHHHHHH...",
+  ".THHHHHHHHH...",
+  "..HHHHHHHH....",
+  "..H.H...H.H...",
+  "..H.H...H.H...",
+  "..D.D...D.D...",
+];
+
+function CyberdeckArt() {
+  const px = 5;
+  const horseColor: Record<string, string> = { H: "#a86b3c", M: "#4a2c1a", T: "#4a2c1a", D: "#2a1a10" };
+  const stats = [
+    { label: "hunger", c: "var(--color-pink)", w: 0.72 },
+    { label: "mood · happy", c: "var(--color-green)", w: 0.9 },
+    { label: "motion · hi!", c: "var(--color-purple)", w: 0.5 },
   ];
   return (
     <svg viewBox="0 0 320 190" className="h-full w-full" aria-hidden>
-      <g transform="translate(30 16)">
-        <rect width="92" height="158" rx="16" fill="#161c30" stroke="var(--color-line-strong)" />
-        <rect x="34" y="8" width="24" height="5" rx="2.5" fill="var(--color-line-strong)" />
-        <path d="M54 44 A 15 15 0 1 1 40 26 A 11 11 0 0 0 54 44 Z" fill="var(--color-purple)" />
-        <text x="46" y="74" fill="var(--color-ink)" fontSize="10" textAnchor="middle" style={mono} fontWeight="600">
-          Not tonight
-        </text>
-        <text x="46" y="88" fill="var(--color-faint)" fontSize="8" textAnchor="middle" style={mono}>
-          until 6:00 AM
-        </text>
-        <rect x="12" y="104" width="68" height="20" rx="10" fill="var(--color-pink)" />
-        <text x="46" y="117" fill="var(--color-bg)" fontSize="8" textAnchor="middle" style={mono} fontWeight="600">
-          prove you’re ok
-        </text>
-        <text x="46" y="142" fill="var(--color-faint)" fontSize="8" textAnchor="middle" style={mono}>
-          ride home →
+      <defs>
+        <filter id="cd-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+      </defs>
+      <g transform="translate(20 28)">
+        {/* LED strip glow behind the frame */}
+        <rect x="-2" y="-2" width="174" height="138" rx="14" fill="none" stroke="var(--color-pink)" strokeWidth="5" opacity="0.7" filter="url(#cd-glow)" />
+        <rect width="170" height="134" rx="12" fill="#161c30" stroke="var(--color-line-strong)" />
+        <circle cx="85" cy="8" r="3" fill="var(--color-line-strong)" />
+        {/* meadow screen */}
+        <rect x="10" y="16" width="150" height="108" rx="4" fill="#5f9e4a" />
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+          <rect key={i} x={18 + ((i * 37) % 130)} y={26 + ((i * 23) % 88)} width="4" height="3" fill="#4f8a3d" />
+        ))}
+        {/* fence */}
+        <g stroke="#e8d3a8" strokeWidth="2">
+          <line x1="16" y1="30" x2="154" y2="30" />
+          <line x1="16" y1="36" x2="154" y2="36" />
+          {[18, 52, 86, 120, 152].map((x) => (
+            <line key={x} x1={x} y1="26" x2={x} y2="40" />
+          ))}
+        </g>
+        {/* trough */}
+        <rect x="124" y="92" width="26" height="10" rx="2" fill="#7a5233" />
+        <rect x="127" y="94" width="20" height="4" fill="var(--color-blue)" />
+        {/* horse */}
+        <g transform="translate(46 58)">
+          {HORSE.map((row, y) =>
+            row.split("").map((ch, x) =>
+              ch === "." ? null : (
+                <rect key={`${x}-${y}`} x={x * px} y={y * px} width={px} height={px} fill={horseColor[ch]} />
+              ),
+            ),
+          )}
+          <rect x={10 * px} y={1 * px} width={px * 0.6} height={px * 0.6} fill="#161c30" transform="translate(4 3)" />
+        </g>
+        <text x="62" y="54" fill="var(--color-pink)" fontSize="11" style={mono}>
+          ♥
         </text>
       </g>
-      {apps.map((a, i) => (
-        <g key={a.label} transform={`translate(144 ${30 + i * 36})`}>
-          <rect width="156" height="26" rx="8" fill="#161c30" />
-          <circle cx="13" cy="13" r="4" fill={a.c} />
-          <text x="26" y="17" fill={a.on ? "var(--color-ink)" : "var(--color-muted)"} fontSize="10" style={mono}>
-            {a.label}
+      {stats.map((s, i) => (
+        <g key={s.label} transform={`translate(204 ${42 + i * 38})`}>
+          <text x="0" y="0" fill="var(--color-muted)" fontSize="9" style={mono}>
+            {s.label}
           </text>
-          <text x="146" y="17" fill={a.c} fontSize="9" textAnchor="end" style={mono}>
-            {a.on ? "open" : "shielded"}
-          </text>
+          <rect y="7" width="100" height="8" rx="4" fill="#161c30" />
+          <rect y="7" width={100 * s.w} height="8" rx="4" fill={s.c} />
         </g>
       ))}
     </svg>
@@ -210,8 +244,8 @@ export default function ProjectArt({ kind }: { kind: ArtKind }) {
       return <ResellArt />;
     case "needlepoint":
       return <NeedlepointArt />;
-    case "nightcap":
-      return <NightcapArt />;
+    case "cyberdeck":
+      return <CyberdeckArt />;
     case "patents":
       return <PatentsArt />;
     case "email":
